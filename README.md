@@ -243,6 +243,14 @@ Open a terminal for each module and run them in the following order:
 
 **Note:** Each module runs as a continuous service. Use separate terminals so that all modules can run simultaneously.
 
+## Screenshots
+
+### Command-Line Interface (CLI)
+![CLI Screenshot](CLI_screenshot.png)
+
+### Graphical User Interface (GUI)
+![GUI Screenshot](GUI_screenshot.png)
+
 ### SOLID Principles
 
 This application follows SOLID principles to ensure modularity, flexibility, and maintainability across all modules.
