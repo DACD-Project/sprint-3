@@ -11,11 +11,20 @@ import java.util.logging.Logger;
 
 public class DestinationCoordinator {
     private static final Logger logger = Logger.getLogger(DestinationCoordinator.class.getName());
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> e092e7441a9e0cee25b613a3665319c118dba247
     private final ScheduledExecutorService scheduler;
 
     public DestinationCoordinator() {
         this.scheduler = Executors.newScheduledThreadPool(1);
     }
+<<<<<<< HEAD
+=======
+=======
+>>>>>>> 5ae21ffa1f83af28bd5b1676d871b296d2012d92
+>>>>>>> e092e7441a9e0cee25b613a3665319c118dba247
 
     public void run(String[] args) {
         String apiKey = args[0];
@@ -42,12 +51,28 @@ public class DestinationCoordinator {
         scheduler.scheduleAtFixedRate(() -> {
             for (City city : cities) {
                 try {
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> e092e7441a9e0cee25b613a3665319c118dba247
                     List<Destination> destinations = provider.getDestinations(city.latitude, city.longitude, city.name);
                     if (!destinations.isEmpty()) {
                         destinations.forEach(destination -> store.storeDestination(city.name, destination));
                         publisher.publish(new DestinationEvent(sourceId, city.name, destinations));
                     }
                     Thread.sleep(1000); // Retardo para respetar el límite de la API
+<<<<<<< HEAD
+=======
+=======
+                    List<Destination> destinations = provider.getDestinations(city.latitude, city.longitude);
+                    if (!destinations.isEmpty()) {
+                        Destination destination = destinations.get(0);
+                        store.storeDestination(city.name, destination);
+                        publisher.publish(new DestinationEvent(sourceId, city.name, List.of(destination)));
+                    }
+                    Thread.sleep(1500);
+>>>>>>> 5ae21ffa1f83af28bd5b1676d871b296d2012d92
+>>>>>>> e092e7441a9e0cee25b613a3665319c118dba247
                 } catch (InterruptedException e) {
                     logger.severe("Interrupted while waiting between API requests: " + e.getMessage());
                     Thread.currentThread().interrupt();
