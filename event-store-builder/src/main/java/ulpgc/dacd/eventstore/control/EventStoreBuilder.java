@@ -7,7 +7,7 @@ public class EventStoreBuilder {
 
     public static void main(String[] args) {
         if (args.length < 2) {
-            logger.warning("Usage: java EventStoreBuilder <broker_url> <topic1,topic2,...>");
+            logger.warning("Usage: java EventStoreBuilder <broker_url> <topic1,topic2>");
             return;
         }
 
