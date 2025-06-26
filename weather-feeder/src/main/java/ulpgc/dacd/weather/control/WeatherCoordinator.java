@@ -35,13 +35,21 @@ public class WeatherCoordinator {
                     logger.warning("No weather data for " + city.getName());
                 }
                 try {
+<<<<<<< HEAD
                     Thread.sleep(1000);
+=======
+                    Thread.sleep(1000); // Evitar superar límites de la API
+>>>>>>> 40f50de282937bfb02d449423a40b8531e5cf4b4
                 } catch (InterruptedException e) {
                     logger.severe("Interrupted while sleeping: " + e.getMessage());
                 }
             }
             try {
+<<<<<<< HEAD
                 Thread.sleep(5 * 60 * 1000);
+=======
+                Thread.sleep(6 * 60 * 60 * 1000); // Ejecutar cada 6 horas
+>>>>>>> 40f50de282937bfb02d449423a40b8531e5cf4b4
             } catch (InterruptedException e) {
                 logger.severe("Interrupted while waiting for next execution: " + e.getMessage());
             }

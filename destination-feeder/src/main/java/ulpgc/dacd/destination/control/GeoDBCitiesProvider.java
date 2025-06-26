@@ -30,9 +30,16 @@ public class GeoDBCitiesProvider implements DestinationProvider {
     @Override
     public List<Destination> getDestinations(double latitude, double longitude, String cityName) {
         try {
+<<<<<<< HEAD
             String latStr = String.format(Locale.US, "%+07.4f", latitude);
             String lonStr = String.format(Locale.US, "%+08.4f", longitude);
             String location = latStr + lonStr;
+=======
+            // Formatear coordenadas según ISO 6709 (±DD.DDDD±DDD.DDDD) usando Locale.US
+            String latStr = String.format(Locale.US, "%+07.4f", latitude); // e.g., +41.3851
+            String lonStr = String.format(Locale.US, "%+08.4f", longitude); // e.g., +002.1734
+            String location = latStr + lonStr; // e.g., +41.3851+002.1734
+>>>>>>> 40f50de282937bfb02d449423a40b8531e5cf4b4
             String url = String.format(apiUrl, location) + "?limit=5&minPopulation=50000&radius=100";
             HttpClient client = HttpClient.newHttpClient();
             HttpRequest request = HttpRequest.newBuilder()

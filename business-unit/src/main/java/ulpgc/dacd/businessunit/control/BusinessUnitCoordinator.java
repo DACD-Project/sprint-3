@@ -9,8 +9,11 @@ import ulpgc.dacd.businessunit.model.CityData;
 import ulpgc.dacd.businessunit.model.DestinationEvent;
 import ulpgc.dacd.businessunit.model.WeatherEvent;
 import ulpgc.dacd.businessunit.view.CliView;
+<<<<<<< HEAD
 import ulpgc.dacd.businessunit.view.GuiView;
 import ulpgc.dacd.businessunit.view.View;
+=======
+>>>>>>> 40f50de282937bfb02d449423a40b8531e5cf4b4
 
 import javax.jms.*;
 import org.apache.activemq.ActiveMQConnectionFactory;
@@ -99,14 +102,26 @@ public class BusinessUnitCoordinator {
     }
 
     private double calculateScore(WeatherEvent.ForecastEntry forecast) {
+<<<<<<< HEAD
+=======
+        // Algoritmo: temperatura ideal 23°C, humedad ideal 40%, velocidad viento ideal 2 m/s, probabilidad lluvia ideal 0%
+>>>>>>> 40f50de282937bfb02d449423a40b8531e5cf4b4
         double temp = forecast.getTemperature();
         int humidity = forecast.getHumidity();
         double windSpeed = forecast.getWindSpeed();
         double pop = forecast.getPop();
+<<<<<<< HEAD
         double tempScore = Math.max(0, 100 - Math.abs(temp - 23) * 5);
         double humidityScore = Math.max(0, 100 - Math.abs(humidity - 40) * 2);
         double windScore = Math.max(0, 100 - Math.abs(windSpeed - 2) * 10);
         double popScore = Math.max(0, 100 - pop * 100);
         return (tempScore + humidityScore + windScore + popScore) / 4;
+=======
+        double tempScore = Math.max(0, 100 - Math.abs(temp - 23) * 5); // Penaliza desviación de 23°C
+        double humidityScore = Math.max(0, 100 - Math.abs(humidity - 40) * 2); // Penaliza desviación de 40%
+        double windSpeedScore = Math.max(0, 100 - Math.abs(windSpeed - 2) * 10); // Penaliza desviación de 2 m/s
+        double popScore = Math.max(0, 100 - pop * 100); // Penaliza probabilidad de lluvia
+        return (tempScore + humidityScore + windSpeedScore + popScore) / 4; // Promedio de los 4 factores
+>>>>>>> 40f50de282937bfb02d449423a40b8531e5cf4b4
     }
 }
