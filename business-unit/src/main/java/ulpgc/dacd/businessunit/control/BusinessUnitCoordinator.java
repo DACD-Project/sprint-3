@@ -9,6 +9,7 @@ import ulpgc.dacd.businessunit.model.CityData;
 import ulpgc.dacd.businessunit.model.DestinationEvent;
 import ulpgc.dacd.businessunit.model.WeatherEvent;
 import ulpgc.dacd.businessunit.view.CliView;
+
 import javax.jms.*;
 import org.apache.activemq.ActiveMQConnectionFactory;
 import java.io.IOException;
