@@ -257,4 +257,4 @@ This application follows SOLID principles to ensure modularity, flexibility, and
 # Participants:
 
 * **Suárez Sauca, Carlos** - [CarlosSuaSau](https://github.com/CarlosSuaSau)
-* * **Casimiro Torres, Kimberly** - [Kimberlycasimiro](https://github.com/Kimberlycasimiro)
+* **Casimiro Torres, Kimberly** - [Kimberlycasimiro](https://github.com/Kimberlycasimiro)
