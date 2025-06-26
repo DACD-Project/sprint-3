@@ -7,8 +7,16 @@ import java.util.List;
 import java.util.concurrent.Executors;
 import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.TimeUnit;
+import java.util.logging.Logger;
 
 public class DestinationCoordinator {
+    private static final Logger logger = Logger.getLogger(DestinationCoordinator.class.getName());
+    private final ScheduledExecutorService scheduler;
+
+    public DestinationCoordinator() {
+        this.scheduler = Executors.newScheduledThreadPool(1);
+    }
+
     public void run(String[] args) {
         String apiKey = args[0];
         String dbPath = "jdbc:sqlite:" + args[1];
@@ -31,23 +39,42 @@ public class DestinationCoordinator {
                 new City("Zaragoza", 41.6488, -0.8891)
         );
 
-        ScheduledExecutorService scheduler = Executors.newScheduledThreadPool(1);
         scheduler.scheduleAtFixedRate(() -> {
             for (City city : cities) {
-                List<Destination> destinations = provider.getDestinations(city.latitude, city.longitude);
-                if (!destinations.isEmpty()) {
-                    Destination destination = destinations.get(0);
-                    store.storeDestination(destination);
-                    publisher.publish(new DestinationEvent(sourceId, city.name, List.of(destination)));
+                try {
+                    List<Destination> destinations = provider.getDestinations(city.latitude, city.longitude, city.name);
+                    if (!destinations.isEmpty()) {
+                        destinations.forEach(destination -> store.storeDestination(city.name, destination));
+                        publisher.publish(new DestinationEvent(sourceId, city.name, destinations));
+                    }
+                    Thread.sleep(1000); // Retardo para respetar el límite de la API
+                } catch (InterruptedException e) {
+                    logger.severe("Interrupted while waiting between API requests: " + e.getMessage());
+                    Thread.currentThread().interrupt();
+                } catch (Exception e) {
+                    logger.severe("Error processing city " + city.name + ": " + e.getMessage());
                 }
             }
         }, 0, 6, TimeUnit.HOURS);
+    }
+
+    public void shutdown() {
+        scheduler.shutdown();
+        try {
+            if (!scheduler.awaitTermination(60, TimeUnit.SECONDS)) {
+                scheduler.shutdownNow();
+            }
+        } catch (InterruptedException e) {
+            scheduler.shutdownNow();
+            Thread.currentThread().interrupt();
+        }
     }
 
     private static class City {
         String name;
         double latitude;
         double longitude;
+
         City(String name, double latitude, double longitude) {
             this.name = name;
             this.latitude = latitude;

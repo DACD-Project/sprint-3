@@ -4,5 +4,5 @@ import ulpgc.dacd.destination.model.Destination;
 import java.util.List;
 
 public interface DestinationProvider {
-    List<Destination> getDestinations(double lat, double lon);
+    List<Destination> getDestinations(double lat, double lon, String cityName);
 }

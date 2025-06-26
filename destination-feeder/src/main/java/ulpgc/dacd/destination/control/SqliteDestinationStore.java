@@ -17,7 +17,7 @@ public class SqliteDestinationStore implements DestinationStore {
     }
 
     @Override
-    public void storeDestination(Destination destination) {
+    public void storeDestination(String name, Destination destination) {
         try (Connection conn = DriverManager.getConnection(dbPath);
              PreparedStatement checkStmt = conn.prepareStatement(
                      "SELECT COUNT(*) FROM destination WHERE name = ? AND country = ? AND latitude = ? AND longitude = ? AND population = ? AND distance = ?");

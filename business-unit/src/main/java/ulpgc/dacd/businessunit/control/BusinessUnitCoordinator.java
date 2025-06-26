@@ -9,6 +9,7 @@ import ulpgc.dacd.businessunit.model.CityData;
 import ulpgc.dacd.businessunit.model.DestinationEvent;
 import ulpgc.dacd.businessunit.model.WeatherEvent;
 import ulpgc.dacd.businessunit.view.CliView;
+
 import javax.jms.*;
 import org.apache.activemq.ActiveMQConnectionFactory;
 import java.io.IOException;
@@ -94,11 +95,15 @@ public class BusinessUnitCoordinator {
     }
 
     private double calculateScore(WeatherEvent.ForecastEntry forecast) {
-        // Algoritmo simple: temperatura ideal 23°C, humedad ideal 40%
+        // Algoritmo: temperatura ideal 23°C, humedad ideal 40%, velocidad viento ideal 2 m/s, probabilidad lluvia ideal 0%
         double temp = forecast.getTemperature();
         int humidity = forecast.getHumidity();
+        double windSpeed = forecast.getWindSpeed();
+        double pop = forecast.getPop();
         double tempScore = Math.max(0, 100 - Math.abs(temp - 23) * 5); // Penaliza desviación de 23°C
         double humidityScore = Math.max(0, 100 - Math.abs(humidity - 40) * 2); // Penaliza desviación de 40%
-        return (tempScore + humidityScore) / 2;
+        double windSpeedScore = Math.max(0, 100 - Math.abs(windSpeed - 2) * 10); // Penaliza desviación de 2 m/s
+        double popScore = Math.max(0, 100 - pop * 100); // Penaliza probabilidad de lluvia
+        return (tempScore + humidityScore + windSpeedScore + popScore) / 4; // Promedio de los 4 factores
     }
 }
