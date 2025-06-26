@@ -155,12 +155,12 @@ Each module requires specific arguments to run properly. These must be set in th
 
 - **For `event-store-builder`:**
   ```bash
-  <broker_url> <topic1,topic2>
+  <broker_url> <weather_topic> <destination_topic>
   ```
 
 - **For `business-unit`:**
   ```bash
-
+  <broker_url> <weather_topic> <destination_topic> <interface>
   ```
 
 ### 4. Make sure ActiveMQ is running
