@@ -1,14 +1,13 @@
 package ulpgc.dacd.businessunit.control;
 
-import ulpgc.dacd.businessunit.control.BusinessUnitCoordinator;
-
 public class Main {
     public static void main(String[] args) {
-        if (args.length < 3) {
-            System.err.println("usage: java -jar business-unit.jar <broker_url> <weather_topic> <destination_topic>");
-            return;
+        if (args.length != 4 || (!args[3].equalsIgnoreCase("cli") && !args[3].equalsIgnoreCase("gui"))) {
+            System.err.println("Usage: <broker_url> <weather_topic> <destination_topic> <interface: cli|gui>");
+            System.exit(1);
         }
-        new BusinessUnitCoordinator().run(args);
+
+        BusinessUnitCoordinator coordinator = new BusinessUnitCoordinator(args[3]);
+        coordinator.run(args);
     }
 }
-

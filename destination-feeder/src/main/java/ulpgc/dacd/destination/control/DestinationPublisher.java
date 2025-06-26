@@ -63,4 +63,14 @@ public class DestinationPublisher {
             e.printStackTrace();
         }
     }
+
+    public void close() {
+        try {
+            if (producer != null) producer.close();
+            if (session != null) session.close();
+            if (connection != null) connection.close();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
 }

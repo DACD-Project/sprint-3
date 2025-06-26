@@ -1,7 +1,7 @@
 package ulpgc.dacd.weather.control;
 
-import ulpgc.dacd.weather.model.Weather;
+import ulpgc.dacd.weather.model.WeatherEvent;
 
 public interface WeatherProvider {
-    Weather getWeather(double lat, double lon);
+    WeatherEvent getWeather(double latitude, double longitude, String cityName);
 }

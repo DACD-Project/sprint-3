@@ -1,19 +1,21 @@
 package ulpgc.dacd.weather.control;
 
-import ulpgc.dacd.weather.model.Weather;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
+import ulpgc.dacd.weather.model.WeatherEvent;
 
+import java.io.IOException;
 import java.net.URI;
 import java.net.http.HttpClient;
 import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.logging.Logger;
 
 public class OpenWeatherMapProvider implements WeatherProvider {
-    private final HttpClient client = HttpClient.newHttpClient();
+    private static final Logger logger = Logger.getLogger(OpenWeatherMapProvider.class.getName());
     private final String apiKey;
     private final String apiUrl;
 
@@ -23,37 +25,42 @@ public class OpenWeatherMapProvider implements WeatherProvider {
     }
 
     @Override
-    public Weather getWeather(double lat, double lon) {
+    public WeatherEvent getWeather(double latitude, double longitude, String cityName) {
         try {
-            String url = apiUrl + "?lat=" + lat + "&lon=" + lon + "&appid=" + apiKey + "&units=metric";
+            String url = String.format(apiUrl, latitude, longitude, apiKey);
+            HttpClient client = HttpClient.newHttpClient();
             HttpRequest request = HttpRequest.newBuilder()
                     .uri(URI.create(url))
                     .GET()
                     .build();
+
             HttpResponse<String> response = client.send(request, HttpResponse.BodyHandlers.ofString());
-            System.out.println("Status code: " + response.statusCode());
-            System.out.println("API response: " + response.body());
+            logger.info("Status code for " + cityName + ": " + response.statusCode());
 
-            JsonObject json = JsonParser.parseString(response.body()).getAsJsonObject();
-            JsonArray forecastList = json.getAsJsonArray("list");
-
-            if (forecastList == null) {
-                System.err.println("The 'list' field is null. Full JSON: " + json);
+            JsonObject jsonObject = JsonParser.parseString(response.body()).getAsJsonObject();
+            if (!jsonObject.get("cod").getAsString().equals("200")) {
+                logger.warning("Error in API response for " + cityName + ": " + jsonObject.get("message").getAsString());
                 return null;
             }
 
-            List<Weather.ForecastEntry> forecast = new ArrayList<>();
-            for (int i = 0; i < forecastList.size(); i++) {
-                JsonObject entry = forecastList.get(i).getAsJsonObject();
-                double temp = entry.getAsJsonObject("main").get("temp").getAsDouble();
-                int humidity = entry.getAsJsonObject("main").get("humidity").getAsInt();
-                long timestamp = entry.get("dt").getAsLong();
-                String dateTime = entry.get("dt_txt").getAsString();
-                forecast.add(new Weather.ForecastEntry(temp, humidity, timestamp, dateTime));
+            JsonArray forecastList = jsonObject.getAsJsonArray("list");
+            List<WeatherEvent.ForecastEntry> forecast = new ArrayList<>();
+            for (var element : forecastList) {
+                JsonObject forecastData = element.getAsJsonObject();
+                JsonObject main = forecastData.getAsJsonObject("main");
+                JsonObject wind = forecastData.getAsJsonObject("wind");
+                double temperature = main.get("temp").getAsDouble();
+                int humidity = main.get("humidity").getAsInt();
+                double windSpeed = wind.get("speed").getAsDouble();
+                double pop = forecastData.get("pop").getAsDouble();
+                long timestamp = forecastData.get("dt").getAsLong();
+                String dateTime = forecastData.get("dt_txt").getAsString();
+                forecast.add(new WeatherEvent.ForecastEntry(temperature, humidity, windSpeed, pop, timestamp, dateTime));
             }
-            return new Weather(forecast);
-        } catch (Exception e) {
-            e.printStackTrace();
+
+            return new WeatherEvent("weather-feeder", cityName, forecast);
+        } catch (IOException | InterruptedException e) {
+            logger.severe("Error fetching weather for " + cityName + ": " + e.getMessage());
             return null;
         }
     }

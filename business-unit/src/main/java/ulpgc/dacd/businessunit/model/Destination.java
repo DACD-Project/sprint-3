@@ -1,4 +1,4 @@
-package ulpgc.dacd.destination.model;
+package ulpgc.dacd.businessunit.model;
 
 public class Destination {
     private final String name;

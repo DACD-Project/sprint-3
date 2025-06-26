@@ -1,0 +1,248 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="b11e6e1a-47a6-4e25-8491-beca3d65415c" name="Changes" comment="business-unit added">
+      <change afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/jarRepositories.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/business-unit/src/main/java/ulpgc/dacd/businessunit/model/Destination.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/business-unit/src/main/java/ulpgc/dacd/businessunit/view/GuiView.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/business-unit/src/main/java/ulpgc/dacd/businessunit/view/View.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/class-diagrams/DestinationUMLDiagram.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/class-diagrams/WeatherUMLDiagram.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/destination-feeder/target/classes/ulpgc/dacd/destination/Main.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/destination-feeder/target/classes/ulpgc/dacd/destination/control/DestinationCoordinator.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/destination-feeder/target/classes/ulpgc/dacd/destination/control/DestinationProvider.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/destination-feeder/target/classes/ulpgc/dacd/destination/control/DestinationPublisher$1.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/destination-feeder/target/classes/ulpgc/dacd/destination/control/DestinationPublisher.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/destination-feeder/target/classes/ulpgc/dacd/destination/control/DestinationStore.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/destination-feeder/target/classes/ulpgc/dacd/destination/control/GeoDBCitiesProvider.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/destination-feeder/target/classes/ulpgc/dacd/destination/control/SqliteDestinationStore.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/destination-feeder/target/classes/ulpgc/dacd/destination/model/Destination.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/destination-feeder/target/classes/ulpgc/dacd/destination/model/DestinationEvent.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/event-store-builder/target/classes/ulpgc/dacd/eventstore/control/EventProcessor.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/event-store-builder/target/classes/ulpgc/dacd/eventstore/control/EventStoreBuilder.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/event-store-builder/target/classes/ulpgc/dacd/eventstore/control/EventSubscriber.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/event-store-builder/target/classes/ulpgc/dacd/eventstore/control/EventWriter.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/eventstore/destinationTopic/destination-feeder/20250622.events" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/eventstore/destinationTopic/destination-feeder/20250624.events" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/eventstore/weatherTopic/weather-feeder/20250622.events" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/eventstore/weatherTopic/weather-feeder/20250624.events" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/weather-feeder/src/main/java/ulpgc/dacd/weather/control/ActiveMQWeatherPublisher.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/weather-feeder/src/main/java/ulpgc/dacd/weather/model/City.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/weather-feeder/target/classes/ulpgc/dacd/weather/Main.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/weather-feeder/target/classes/ulpgc/dacd/weather/control/OpenWeatherMapProvider.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/weather-feeder/target/classes/ulpgc/dacd/weather/control/SqliteWeatherStore.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/weather-feeder/target/classes/ulpgc/dacd/weather/control/WeatherCoordinator.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/weather-feeder/target/classes/ulpgc/dacd/weather/control/WeatherProvider.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/weather-feeder/target/classes/ulpgc/dacd/weather/control/WeatherPublisher.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/weather-feeder/target/classes/ulpgc/dacd/weather/control/WeatherStore.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/weather-feeder/target/classes/ulpgc/dacd/weather/model/Weather$ForecastEntry.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/weather-feeder/target/classes/ulpgc/dacd/weather/model/Weather.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/weather-feeder/target/classes/ulpgc/dacd/weather/model/WeatherEvent.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/business-unit/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/business-unit/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/business-unit/src/main/java/ulpgc/dacd/businessunit/control/BusinessUnitCoordinator.java" beforeDir="false" afterPath="$PROJECT_DIR$/business-unit/src/main/java/ulpgc/dacd/businessunit/control/BusinessUnitCoordinator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/business-unit/src/main/java/ulpgc/dacd/businessunit/control/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/business-unit/src/main/java/ulpgc/dacd/businessunit/control/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/business-unit/src/main/java/ulpgc/dacd/businessunit/model/CityData.java" beforeDir="false" afterPath="$PROJECT_DIR$/business-unit/src/main/java/ulpgc/dacd/businessunit/model/CityData.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/business-unit/src/main/java/ulpgc/dacd/businessunit/model/DestinationEvent.java" beforeDir="false" afterPath="$PROJECT_DIR$/business-unit/src/main/java/ulpgc/dacd/businessunit/model/DestinationEvent.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/business-unit/src/main/java/ulpgc/dacd/businessunit/model/WeatherEvent.java" beforeDir="false" afterPath="$PROJECT_DIR$/business-unit/src/main/java/ulpgc/dacd/businessunit/model/WeatherEvent.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/business-unit/src/main/java/ulpgc/dacd/businessunit/view/CliView.java" beforeDir="false" afterPath="$PROJECT_DIR$/business-unit/src/main/java/ulpgc/dacd/businessunit/view/CliView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/destination-feeder/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/destination-feeder/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/destination-feeder/src/main/java/ulpgc/dacd/destination/control/DestinationCoordinator.java" beforeDir="false" afterPath="$PROJECT_DIR$/destination-feeder/src/main/java/ulpgc/dacd/destination/control/DestinationCoordinator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/destination-feeder/src/main/java/ulpgc/dacd/destination/control/DestinationProvider.java" beforeDir="false" afterPath="$PROJECT_DIR$/destination-feeder/src/main/java/ulpgc/dacd/destination/control/DestinationProvider.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/destination-feeder/src/main/java/ulpgc/dacd/destination/control/DestinationPublisher.java" beforeDir="false" afterPath="$PROJECT_DIR$/destination-feeder/src/main/java/ulpgc/dacd/destination/control/DestinationPublisher.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/destination-feeder/src/main/java/ulpgc/dacd/destination/control/DestinationStore.java" beforeDir="false" afterPath="$PROJECT_DIR$/destination-feeder/src/main/java/ulpgc/dacd/destination/control/DestinationStore.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/destination-feeder/src/main/java/ulpgc/dacd/destination/control/GeoDBCitiesProvider.java" beforeDir="false" afterPath="$PROJECT_DIR$/destination-feeder/src/main/java/ulpgc/dacd/destination/control/GeoDBCitiesProvider.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/destination-feeder/src/main/java/ulpgc/dacd/destination/control/SqliteDestinationStore.java" beforeDir="false" afterPath="$PROJECT_DIR$/destination-feeder/src/main/java/ulpgc/dacd/destination/control/SqliteDestinationStore.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/destination-feeder/src/main/java/ulpgc/dacd/destination/model/Destination.java" beforeDir="false" afterPath="$PROJECT_DIR$/destination-feeder/src/main/java/ulpgc/dacd/destination/model/Destination.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/destination-feeder/src/main/java/ulpgc/dacd/destination/model/DestinationEvent.java" beforeDir="false" afterPath="$PROJECT_DIR$/destination-feeder/src/main/java/ulpgc/dacd/destination/model/DestinationEvent.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/event-store-builder/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/event-store-builder/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/weather-feeder/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/weather-feeder/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/weather-feeder/src/main/java/ulpgc/dacd/weather/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/weather-feeder/src/main/java/ulpgc/dacd/weather/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/weather-feeder/src/main/java/ulpgc/dacd/weather/control/OpenWeatherMapProvider.java" beforeDir="false" afterPath="$PROJECT_DIR$/weather-feeder/src/main/java/ulpgc/dacd/weather/control/OpenWeatherMapProvider.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/weather-feeder/src/main/java/ulpgc/dacd/weather/control/WeatherCoordinator.java" beforeDir="false" afterPath="$PROJECT_DIR$/weather-feeder/src/main/java/ulpgc/dacd/weather/control/WeatherCoordinator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/weather-feeder/src/main/java/ulpgc/dacd/weather/control/WeatherProvider.java" beforeDir="false" afterPath="$PROJECT_DIR$/weather-feeder/src/main/java/ulpgc/dacd/weather/control/WeatherProvider.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/weather-feeder/src/main/java/ulpgc/dacd/weather/control/WeatherPublisher.java" beforeDir="false" afterPath="$PROJECT_DIR$/weather-feeder/src/main/java/ulpgc/dacd/weather/control/WeatherPublisher.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/weather-feeder/src/main/java/ulpgc/dacd/weather/model/WeatherEvent.java" beforeDir="false" afterPath="$PROJECT_DIR$/weather-feeder/src/main/java/ulpgc/dacd/weather/model/WeatherEvent.java" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Interface" />
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;CarlosSuaSau&quot;
+  }
+}</component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/DACD-Project/sprint-3.git&quot;,
+    &quot;accountId&quot;: &quot;6b6ae477-0c52-4494-897f-264c576d8189&quot;
+  }
+}</component>
+  <component name="ProjectColorInfo">{
+  &quot;customColor&quot;: &quot;&quot;,
+  &quot;associatedIndex&quot;: 8
+}</component>
+  <component name="ProjectId" id="2vPaLoegn5706SCiRP0N7dN4LgY" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Application.EventStoreBuilder.executor&quot;: &quot;Run&quot;,
+    &quot;Application.Main.executor&quot;: &quot;Run&quot;,
+    &quot;Application.Main_business.executor&quot;: &quot;Run&quot;,
+    &quot;Application.Main_destination.executor&quot;: &quot;Run&quot;,
+    &quot;Application.Main_weather.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/carlo/IdeaProjects/sprint-3&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;onboarding.tips.debug.path&quot;: &quot;C:/Users/carlo/IdeaProjects/sprint-3/business-unit/src/main/java/ulpgc/dacd/Main.java&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.lookFeel&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  }
+}</component>
+  <component name="RunManager" selected="Application.Main_weather">
+    <configuration name="EventStoreBuilder" type="Application" factoryName="Application">
+      <option name="MAIN_CLASS_NAME" value="ulpgc.dacd.eventstore.control.EventStoreBuilder" />
+      <module name="event-store-builder" />
+      <option name="PROGRAM_PARAMETERS" value="tcp://localhost:61616 weatherTopic,destinationTopic" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Main_business" type="Application" factoryName="Application" temporary="true">
+      <option name="MAIN_CLASS_NAME" value="ulpgc.dacd.businessunit.control.Main" />
+      <module name="business-unit" />
+      <option name="PROGRAM_PARAMETERS" value="tcp://localhost:61616 weatherTopic destinationTopic gui" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="ulpgc.dacd.businessunit.control.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Main_destination" type="Application" factoryName="Application">
+      <option name="MAIN_CLASS_NAME" value="ulpgc.dacd.destination.Main" />
+      <module name="destination-feeder" />
+      <option name="PROGRAM_PARAMETERS" value="d84afcb97cmsh93a4604313a412fp1b409cjsn7c2f138c5ab9 destination.db 40.4168 -3.7038 tcp://localhost:61616 destinationTopic destination-feeder" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Main_weather" type="Application" factoryName="Application">
+      <option name="MAIN_CLASS_NAME" value="ulpgc.dacd.weather.Main" />
+      <module name="weather-feeder" />
+      <option name="PROGRAM_PARAMETERS" value="3595e01f2ab2a8c8166796e6f82b1472 weather.db 40.4168 -3.7038 tcp://localhost:61616 weatherTopic weather-feeder" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="JetRunConfigurationType">
+      <module name="DACD_Proyect_2025" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="KotlinStandaloneScriptRunConfigurationType">
+      <module name="DACD_Proyect_2025" />
+      <option name="filePath" />
+      <method v="2" />
+    </configuration>
+    <list>
+      <item itemvalue="Application.Main_destination" />
+      <item itemvalue="Application.Main_weather" />
+      <item itemvalue="Application.EventStoreBuilder" />
+      <item itemvalue="Application.Main_business" />
+    </list>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.Main_business" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="b11e6e1a-47a6-4e25-8491-beca3d65415c" name="Changes" comment="" />
+      <created>1744049111168</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1744049111168</updated>
+      <workItem from="1744049113370" duration="6065000" />
+      <workItem from="1744105785833" duration="3584000" />
+      <workItem from="1744135222562" duration="4564000" />
+      <workItem from="1745504449409" duration="4000" />
+      <workItem from="1746551549037" duration="1530000" />
+      <workItem from="1746973761790" duration="3649000" />
+      <workItem from="1746985704374" duration="7189000" />
+      <workItem from="1747058871967" duration="6455000" />
+      <workItem from="1747148301053" duration="610000" />
+      <workItem from="1747149172069" duration="29000" />
+      <workItem from="1747155796714" duration="10000" />
+      <workItem from="1747155815431" duration="40000" />
+      <workItem from="1747155861118" duration="168000" />
+      <workItem from="1747156062411" duration="107000" />
+      <workItem from="1747156210984" duration="36000" />
+      <workItem from="1747156275655" duration="113000" />
+      <workItem from="1747156616250" duration="3590000" />
+      <workItem from="1747236634710" duration="991000" />
+      <workItem from="1747318927353" duration="993000" />
+      <workItem from="1750527218275" duration="249000" />
+      <workItem from="1750527480970" duration="13580000" />
+      <workItem from="1750621018002" duration="3106000" />
+    </task>
+    <task id="LOCAL-00001" summary="business-unit added">
+      <option name="closed" value="true" />
+      <created>1750785067795</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1750785067795</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="business-unit added" />
+    <option name="LAST_COMMIT_MESSAGE" value="business-unit added" />
+  </component>
+</project>

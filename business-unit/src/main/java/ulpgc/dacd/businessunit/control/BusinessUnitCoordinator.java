@@ -9,6 +9,9 @@ import ulpgc.dacd.businessunit.model.CityData;
 import ulpgc.dacd.businessunit.model.DestinationEvent;
 import ulpgc.dacd.businessunit.model.WeatherEvent;
 import ulpgc.dacd.businessunit.view.CliView;
+import ulpgc.dacd.businessunit.view.GuiView;
+import ulpgc.dacd.businessunit.view.View;
+
 import javax.jms.*;
 import org.apache.activemq.ActiveMQConnectionFactory;
 import java.io.IOException;
@@ -31,25 +34,27 @@ public class BusinessUnitCoordinator {
                     return Instant.parse(in.nextString());
                 }
             }).create();
-    private final CliView view = new CliView();
+    private final View view;
+
+    public BusinessUnitCoordinator(String interfaceType) {
+        this.view = interfaceType.equalsIgnoreCase("gui") ? new GuiView() : new CliView();
+    }
 
     public void run(String[] args) {
         String brokerUrl = args[0];
         String weatherTopic = args[1];
         String destinationTopic = args[2];
 
-        // Suscribirse a ambos topics
         subscribeToTopic(brokerUrl, weatherTopic, "business-unit-weather");
         subscribeToTopic(brokerUrl, destinationTopic, "business-unit-destination");
 
-        // Mostrar la CLI periódicamente
         new Thread(() -> {
             while (true) {
                 view.display(datamart);
                 try {
-                    Thread.sleep(30000); // Actualizar cada 30 segundos
+                    Thread.sleep(30000);
                 } catch (InterruptedException e) {
-                    logger.severe("CLI interrupted: " + e.getMessage());
+                    logger.severe("Display interrupted: " + e.getMessage());
                 }
             }
         }).start();
@@ -83,7 +88,7 @@ public class BusinessUnitCoordinator {
         if (topicName.contains("weather")) {
             WeatherEvent event = gson.fromJson(json, WeatherEvent.class);
             CityData cityData = datamart.computeIfAbsent(event.city, k -> new CityData(event.city));
-            cityData.setWeather(event.forecast.get(0)); // Usar el pronóstico más reciente
+            cityData.setWeather(event.forecast.get(0));
             cityData.setScore(calculateScore(event.forecast.get(0)));
         } else if (topicName.contains("destination")) {
             DestinationEvent event = gson.fromJson(json, DestinationEvent.class);
@@ -94,11 +99,14 @@ public class BusinessUnitCoordinator {
     }
 
     private double calculateScore(WeatherEvent.ForecastEntry forecast) {
-        // Algoritmo simple: temperatura ideal 23°C, humedad ideal 40%
         double temp = forecast.getTemperature();
         int humidity = forecast.getHumidity();
-        double tempScore = Math.max(0, 100 - Math.abs(temp - 23) * 5); // Penaliza desviación de 23°C
-        double humidityScore = Math.max(0, 100 - Math.abs(humidity - 40) * 2); // Penaliza desviación de 40%
-        return (tempScore + humidityScore) / 2;
+        double windSpeed = forecast.getWindSpeed();
+        double pop = forecast.getPop();
+        double tempScore = Math.max(0, 100 - Math.abs(temp - 23) * 5);
+        double humidityScore = Math.max(0, 100 - Math.abs(humidity - 40) * 2);
+        double windScore = Math.max(0, 100 - Math.abs(windSpeed - 2) * 10);
+        double popScore = Math.max(0, 100 - pop * 100);
+        return (tempScore + humidityScore + windScore + popScore) / 4;
     }
 }
