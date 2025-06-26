@@ -117,17 +117,25 @@ Consumes real-time events from ActiveMQ and stores them in structured files orga
 ### `business-unit`
 
 **Main Function:**  
-Accesses both historical and real-time event data to perform analysis, queries, and recommendations through a console-based interface.
+Accesses real-time event data to perform analysis, queries, and recommendations through a console-based interface, and also through a graphical user interface.
 
 **Packages and Classes:**
 
 - **control**
    - `Main`: Entry point for the business unit; orchestrates different types of user queries.
+   - `BusinessUnitCoordinator`: Manages the subscription to weather and destination topics via ActiveMQ, processes incoming events, calculates city scores, and updates the data display through the selected interface (CLI or GUI).
 
 - **model**
-
+  - `CityData`: Represents a city with its weather data, nearby destinations, and calculated score for travel suitability.
+  - `Destination`: Models a nearby destination with attributes like name, country, distance, and population.
+  - `DestinationEvent`: Encapsulates data for destination events received via JMS, including a list of destinations for a city.
+  - `WeatherEvent`: Encapsulates weather forecast data received via JMS, including temperature, humidity, wind speed, and precipitation probability.
+  
 - **view**
-
+  - `CliView`: Displays weather, destination, and score data for cities in a tabular format via the command-line interface.
+  - `GuiView`: Presents weather, destination, and score data in a graphical user interface using Swing, with a table-like layout and automatic updates.
+  - `View`: Interface defining the contract for displaying data, implemented by `CliView` and `GuiView`.
+    
 # Build and Execution Instructions
 
 ## Run from IntelliJ
@@ -155,7 +163,7 @@ Each module requires specific arguments to run properly. These must be set in th
 
 - **For `event-store-builder`:**
   ```bash
-  <broker_url> <weather_topic> <destination_topic>
+  <broker_url> <weather_topic,destination_topic>
   ```
 
 - **For `business-unit`:**
@@ -216,12 +224,12 @@ Before launching each module, identify and prepare the necessary arguments:
 
 - **For `event-store-builder`:**
   ```bash
-  java -jar event-store-builder-1.0-SNAPSHOT-jar-with-dependencies.jar <broker_url> <topic1,topic2>
+  java -jar event-store-builder-1.0-SNAPSHOT-jar-with-dependencies.jar <broker_url> <weather_topic,destination_topic>
   ```
   
 - **For `business-unit`:**
   ```bash
-
+  java -jar business-unit-1.0-SNAPSHOT-jar-with-dependencies.jar <broker_url> <weather_topic> <destination_topic> <interface_type>
   ```
 
 ### 4. Execute the modules
